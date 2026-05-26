@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Offer;
 use Illuminate\View\View;
 
 class PageController extends Controller
@@ -28,6 +29,22 @@ class PageController extends Controller
 
     public function offers(): View
     {
-        return view('pages.offers');
+        $offers = Offer::query()
+            ->visibleThisWeek()
+            ->with(['menuItems' => function ($query) {
+                $query
+                    ->where('is_actief', true)
+                    ->orderBy('soortgerecht')
+                    ->orderBy('menunummer')
+                    ->orderBy('menu_toevoeging')
+                    ->orderBy('naam');
+            }])
+            ->orderBy('startdatum')
+            ->orderBy('titel')
+            ->get();
+
+        return view('pages.offers', [
+            'offers' => $offers,
+        ]);
     }
 }

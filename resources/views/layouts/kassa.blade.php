@@ -35,6 +35,13 @@
                 </a>
 
                 <a
+                    href="{{ route('kassa.aanbiedingen') }}"
+                    class="menuButton {{ request()->routeIs('kassa.aanbiedingen*') ? 'active' : '' }}"
+                >
+                    Aanbiedingen
+                </a>
+
+                <a
                     href="{{ route('kassa.planning') }}"
                     class="menuButton {{ request()->routeIs('kassa.planning*') ? 'active' : '' }}"
                 >

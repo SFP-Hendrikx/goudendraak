@@ -59,6 +59,10 @@
                 Menukaart
             </a>
 
+            <a href="{{ route('offers') }}" class="{{ request()->routeIs('offers') ? 'active' : '' }}">
+                Aanbiedingen
+            </a>
+
             <a href="{{ route('news') }}" class="{{ request()->routeIs('news') ? 'active' : '' }}">
                 Nieuws
             </a>

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class MenuItem extends Model
 {
@@ -25,4 +26,16 @@ class MenuItem extends Model
         'price' => 'float',
         'is_actief' => 'boolean',
     ];
+
+    public function offers(): BelongsToMany
+    {
+        return $this->belongsToMany(
+            Offer::class,
+            'aanbieding_menu',
+            'menu_item_id',
+            'aanbieding_id'
+        )
+            ->withPivot('actieprijs')
+            ->withTimestamps();
+    }
 }

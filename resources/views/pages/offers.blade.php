@@ -8,32 +8,56 @@
     <section class="offers-panel">
         <h2>Aanbiedingen van deze week</h2>
 
-        <article class="offer-card">
-            <h3>Speciale Studentenaanbieding</h3>
+        @forelse($offers as $offer)
+            <article class="offer-card">
+                <h3>{{ $offer->titel }}</h3>
 
-            <h4>Chinese Rijsttafel voor 2 personen</h4>
+                @if($offer->beschrijving)
+                    <p class="offer-intro">
+                        {{ $offer->beschrijving }}
+                    </p>
+                @endif
 
-            <p class="offer-intro">
-                Maak een keuze uit 3 van onderstaande keuzegerechten:
-            </p>
+                <p class="offer-period">
+                    Geldig van {{ $offer->startdatum->format('d-m-Y') }}
+                    t/m {{ $offer->einddatum->format('d-m-Y') }}
+                </p>
 
-            <div class="offer-dishes">
-                <span>Koe Loe Yuk</span>
-                <span>Foe Yong Hai</span>
-                <span>Tjap Tjoy</span>
-                <span>Garnalen met Gebakken Knoflook</span>
-                <span>Babi Pangang</span>
-                <span>Kipfilet in Zwarte Bonen saus</span>
-            </div>
+                <div class="offer-dishes">
+                    @foreach($offer->menuItems as $menuItem)
+                        <div class="offer-dish-card">
+                            <h4>
+                                {{ $menuItem->menunummer }}{{ $menuItem->menu_toevoeging }}.
+                                {{ $menuItem->naam }}
+                            </h4>
 
-            <p>
-                Met witte rijst. Nasi of bami voor meerprijs mogelijk.
-            </p>
+                            @if($menuItem->beschrijving)
+                                <p>{{ $menuItem->beschrijving }}</p>
+                            @endif
 
-            <p class="offer-price">
-                Prijs: €21,00
-            </p>
-        </article>
+                            <p class="priceLine">
+                                <span class="oldPrice">
+                                    Normaal € {{ number_format((float) $menuItem->price, 2, ',', ' ') }}
+                                </span>
+
+                                <span class="newPrice">
+                                    Nu € {{ number_format((float) $menuItem->pivot->actieprijs, 2, ',', ' ') }}
+                                </span>
+                            </p>
+                        </div>
+                    @endforeach
+                </div>
+            </article>
+        @empty
+            <article class="offer-card">
+                <h3>Geen actuele aanbiedingen</h3>
+
+                <p>
+                    Er zijn op dit moment geen aanbiedingen actief.
+                    Kom later terug voor nieuwe acties.
+                </p>
+            </article>
+        @endforelse
     </section>
 
     <div class="bottom-link">

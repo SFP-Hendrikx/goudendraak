@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Kassa\MenuItemController;
+use App\Http\Controllers\Kassa\OfferController;
 use App\Http\Controllers\Kassa\PlanningController;
 use App\Http\Controllers\KassaController;
 use App\Http\Controllers\PageController;
@@ -31,6 +32,14 @@ Route::prefix('kassa')->name('kassa.')->group(function () {
             Route::patch('/gerechten/{menuItem}', [MenuItemController::class, 'update'])->name('gerechten.update');
             Route::delete('/gerechten/{menuItem}', [MenuItemController::class, 'destroy'])->name('gerechten.destroy');
             Route::patch('/gerechten/{menuItem}/herstellen', [MenuItemController::class, 'restore'])->name('gerechten.restore');
+
+            Route::get('/aanbiedingen', [OfferController::class, 'index'])->name('aanbiedingen');
+            Route::get('/aanbiedingen/nieuw', [OfferController::class, 'create'])->name('aanbiedingen.create');
+            Route::post('/aanbiedingen', [OfferController::class, 'store'])->name('aanbiedingen.store');
+            Route::get('/aanbiedingen/{offer}/bewerken', [OfferController::class, 'edit'])->name('aanbiedingen.edit');
+            Route::patch('/aanbiedingen/{offer}', [OfferController::class, 'update'])->name('aanbiedingen.update');
+            Route::delete('/aanbiedingen/{offer}', [OfferController::class, 'destroy'])->name('aanbiedingen.destroy');
+            Route::patch('/aanbiedingen/{offer}/herstellen', [OfferController::class, 'restore'])->name('aanbiedingen.restore');
 
             Route::get('/planning', [PlanningController::class, 'index'])->name('planning');
             Route::post('/planning', [PlanningController::class, 'store'])->name('planning.store');
