@@ -1,17 +1,231 @@
-#menuPage {
-    padding: 30px;
+#dishesPage {
+    width: min(1200px, calc(100% - 30px));
+    margin: 25px auto;
 }
 
-#menuPage img {
-    display: block;
-    width: 100%;
-    max-width: 1100px;
-    height: auto;
-    margin: 0 auto;
+.dishesHeader {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 18px;
+    border: 1px solid rgb(0, 102, 255);
+    border-radius: 10px;
+    background-color: rgb(245, 249, 255);
 }
 
-@media (max-width: 760px) {
-    #menuPage {
-        padding: 15px;
+.dishesHeader h1 {
+    margin: 0 0 8px;
+    color: rgb(0, 102, 255);
+}
+
+.dishesHeader p {
+    margin: 0;
+}
+
+.successMessage,
+.errorMessage {
+    margin-bottom: 15px;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.successMessage {
+    border: 1px solid green;
+    background-color: #edf9ed;
+    color: green;
+}
+
+.errorMessage {
+    border: 1px solid red;
+    background-color: #fff0f0;
+    color: red;
+}
+
+.dishFilterForm,
+.dishCreatePanel,
+.dishCard {
+    margin-bottom: 18px;
+    padding: 16px;
+    border: 1px solid rgb(0, 102, 255);
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+
+.dishFilterForm {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: end;
+    background-color: rgb(245, 249, 255);
+}
+
+.dishCreatePanel h2,
+.dishList h2 {
+    margin-top: 0;
+    color: rgb(0, 102, 255);
+}
+
+.formGrid {
+    display: grid;
+    grid-template-columns: 110px 120px minmax(220px, 1fr) 120px minmax(180px, 260px) minmax(180px, 260px);
+    gap: 12px;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.formGroup.full {
+    grid-column: 1 / -1;
+}
+
+.formGroup label,
+.checkboxGroup {
+    margin-bottom: 4px;
+    color: rgb(0, 102, 255);
+    font-weight: bold;
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea,
+.dishFilterForm input,
+.dishFilterForm select {
+    padding: 7px;
+    border: 1px solid rgb(0, 102, 255);
+    border-radius: 6px;
+    background-color: #ffffff;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.formGroup textarea {
+    resize: vertical;
+}
+
+.checkboxGroup {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+button,
+.secondaryButton,
+.createButton {
+    display: inline-block;
+    padding: 8px 13px;
+    border: 1px solid rgb(0, 102, 255);
+    border-radius: 6px;
+    background-color: rgb(222, 235, 247);
+    color: rgb(0, 102, 255);
+    font-family: inherit;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button:hover,
+button:focus,
+.secondaryButton:hover,
+.secondaryButton:focus,
+.createButton:hover,
+.createButton:focus {
+    text-decoration: underline;
+}
+
+.createButton {
+    white-space: nowrap;
+}
+
+.dangerButton {
+    border-color: #b00020;
+    background-color: #ffe8ec;
+    color: #b00020;
+}
+
+.dishCard.inactive {
+    opacity: 0.65;
+    background-color: #f5f5f5;
+}
+
+.dishActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.emptyState {
+    padding: 16px;
+    border: 1px solid rgb(0, 102, 255);
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.paginationWrapper {
+    margin-top: 20px;
+}
+
+.filterHint {
+    color: rgb(0, 102, 255);
+    font-size: 13px;
+    font-weight: bold;
+}
+
+@media (max-width: 1150px) {
+    .formGrid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .formGroup.full {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 650px) {
+    .dishesHeader {
+        display: block;
+    }
+
+    .createButton,
+    .dishesHeader .secondaryButton {
+        margin-top: 12px;
+    }
+
+    .dishFilterForm {
+        display: block;
+    }
+
+    .dishFilterForm .formGroup,
+    .dishFilterForm button,
+    .dishFilterForm .secondaryButton,
+    .checkboxGroup {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .formGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .formGroup.full {
+        grid-column: auto;
+    }
+
+    .dishActions {
+        display: block;
+    }
+
+    .dishActions button,
+    .dishActions .secondaryButton,
+    .dishActions form {
+        width: 100%;
+        margin-bottom: 8px;
     }
 }

@@ -210,7 +210,13 @@ class KassaController extends Controller
 
     private function getMenuItems()
     {
-        return DB::table('menu')
+        $query = DB::table('menu');
+
+        if (Schema::hasColumn('menu', 'is_actief')) {
+            $query->where('is_actief', true);
+        }
+
+        return $query
             ->orderBy('id')
             ->orderBy('menunummer')
             ->orderBy('menu_toevoeging')
