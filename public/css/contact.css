@@ -1,0 +1,52 @@
+.contact-panel {
+    margin-top: 50px;
+}
+
+.contact-panel h2 {
+    margin-bottom: 20px;
+    font-size: 1.35rem;
+    line-height: 1.5;
+}
+
+.contact-address {
+    font-style: normal;
+    font-size: 1.25rem;
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+.map-panel {
+    width: min(900px, calc(100% - 100px));
+    margin: 35px auto 0;
+    padding: 0;
+    background: var(--color-panel);
+    border: 1px solid #000000;
+}
+
+.map-panel iframe {
+    display: block;
+    width: 100%;
+    min-height: 450px;
+}
+
+@media (max-width: 760px) {
+    .contact-panel {
+        margin-top: 30px;
+    }
+
+    .contact-panel h2 {
+        font-size: 1.1rem;
+    }
+
+    .contact-address {
+        font-size: 1rem;
+    }
+
+    .map-panel {
+        width: 100%;
+    }
+
+    .map-panel iframe {
+        min-height: 320px;
+    }
+}

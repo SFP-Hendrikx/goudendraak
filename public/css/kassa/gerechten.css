@@ -1,0 +1,17 @@
+#menuPage {
+    padding: 30px;
+}
+
+#menuPage img {
+    display: block;
+    width: 100%;
+    max-width: 1100px;
+    height: auto;
+    margin: 0 auto;
+}
+
+@media (max-width: 760px) {
+    #menuPage {
+        padding: 15px;
+    }
+}

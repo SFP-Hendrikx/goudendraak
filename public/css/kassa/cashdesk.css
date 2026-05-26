@@ -1,0 +1,290 @@
+#cashDeskPage {
+    width: 100%;
+}
+
+#cashDeskLeft {
+    width: 60%;
+    height: 600px;
+    margin-top: 20px;
+    padding: 10px;
+    float: left;
+    border-right: 2px solid rgb(0, 102, 255);
+}
+
+#cashDeskRight {
+    width: 40%;
+    height: 600px;
+    margin-top: 20px;
+    padding: 10px;
+    float: left;
+}
+
+#cashDeskFilters {
+    margin-bottom: 10px;
+    padding: 12px;
+    border: 1px solid rgb(0, 102, 255);
+    border-radius: 5px;
+    background-color: rgb(245, 249, 255);
+}
+
+.filterGroup {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 8px;
+    vertical-align: top;
+}
+
+.filterGroup label {
+    display: block;
+    margin-bottom: 4px;
+    color: rgb(0, 102, 255);
+    font-weight: bold;
+}
+
+#menuSearch,
+#categoryFilter {
+    min-width: 220px;
+    padding: 7px;
+    border: 1px solid rgb(0, 102, 255);
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+#resetFilters {
+    margin-top: 18px;
+    padding: 7px 12px;
+    border: 1px solid rgb(0, 102, 255);
+    border-radius: 6px;
+    background-color: rgb(222, 235, 247);
+    color: rgb(0, 102, 255);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#resetFilters:hover,
+#resetFilters:focus {
+    text-decoration: underline;
+}
+
+.filterStatus {
+    margin: 4px 0 0;
+    color: rgb(0, 102, 255);
+    font-weight: bold;
+}
+
+.noResults {
+    margin: 20px 0;
+    padding: 14px;
+    border: 1px solid rgb(0, 102, 255);
+    border-radius: 5px;
+    background-color: rgb(245, 249, 255);
+    color: rgb(0, 102, 255);
+    font-weight: bold;
+    text-align: center;
+}
+
+[v-cloak] {
+    display: none;
+}
+
+#itemsToSelect,
+#itemsSelected {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    overflow-y: scroll;
+    border: 1px solid rgb(0, 102, 255);
+    border-radius: 5px 0 0 5px;
+}
+
+#itemsToSelect {
+    height: calc(100% - 110px);
+}
+
+#itemsSelected {
+    height: 85%;
+}
+
+#itemsSelectedContainer {
+    height: 100%;
+}
+
+#itemsSelectedTotal {
+    width: 100%;
+    height: 15%;
+    padding: 10px;
+    border: 1px solid rgb(0, 102, 255);
+    border-radius: 5px;
+}
+
+.menuItemType,
+.orderHeader {
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.menuItemType:first-child,
+.orderHeader {
+    margin-top: 0;
+}
+
+.itemToSelectTable,
+.itemSelectedTable,
+.itemSelectedTotalTable {
+    width: 100%;
+}
+
+.itemSelectedTotalTable {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.itemToSelectTable tr td:nth-child(1),
+.itemSelectedTable tr td:nth-child(1),
+.itemSelectedTotalTable tr td:nth-child(1) {
+    width: 10%;
+    vertical-align: top;
+}
+
+.itemToSelectTable tr td:nth-child(2) {
+    width: 70%;
+}
+
+.itemSelectedTable tr td:nth-child(2) {
+    width: 60%;
+}
+
+.itemToSelectTable tr td:nth-child(3),
+.itemSelectedTable tr td:nth-child(3) {
+    width: 10%;
+    min-width: 70px;
+}
+
+.itemSelectedTable tr td:nth-child(4) {
+    width: 15%;
+}
+
+.itemSelectedTotalTable tr td:nth-child(2) {
+    width: 50%;
+}
+
+.itemSelectedTotalTable tr td:nth-child(3) {
+    width: 15%;
+}
+
+.orderAmount {
+    display: block;
+    width: 65px;
+    padding: 4px;
+    margin-bottom: 5px;
+}
+
+.removeOrderLine {
+    width: 65px;
+    padding: 4px;
+    border: 1px solid rgb(0, 102, 255);
+    border-radius: 5px;
+    background-color: rgb(222, 235, 247);
+    color: rgb(0, 102, 255);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.remarkPicker {
+    display: flex;
+    width: 100%;
+    margin-top: 6px;
+}
+
+.remarkPicker .orderRemark {
+    flex: 1;
+    min-width: 0;
+    height: 30px;
+    padding: 5px;
+    border: 1px solid rgb(0, 102, 255);
+    border-right: 0;
+    border-radius: 5px 0 0 5px;
+    font-size: 13px;
+}
+
+.commonRemarkSelect {
+    width: 42px;
+    height: 30px;
+    padding: 4px;
+    border: 1px solid rgb(0, 102, 255);
+    border-radius: 0 5px 5px 0;
+    background-color: #ffffff;
+    color: rgb(0, 102, 255);
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.sideDishWrapper {
+    margin-top: 6px;
+}
+
+.sideDishWrapper label {
+    display: block;
+    margin-bottom: 3px;
+    color: rgb(0, 102, 255);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.sideDishChoice {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid rgb(0, 102, 255);
+    border-radius: 5px;
+    background-color: #ffffff;
+    font-size: 13px;
+}
+
+.addMenuItem,
+#payOrder,
+#clearOrder {
+    cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    #cashDeskLeft,
+    #cashDeskRight {
+        width: 100%;
+        height: auto;
+        float: none;
+        border-right: 0;
+    }
+
+    #itemsToSelect,
+    #itemsSelected {
+        max-height: 500px;
+    }
+
+    #itemsToSelect {
+        height: auto;
+    }
+
+    #itemsSelectedTotal {
+        height: auto;
+    }
+}
+
+@media (max-width: 760px) {
+    .filterGroup {
+        display: block;
+        margin-right: 0;
+    }
+
+    #menuSearch,
+    #categoryFilter {
+        width: 100%;
+        min-width: 0;
+    }
+
+    #resetFilters {
+        width: 100%;
+        margin-top: 5px;
+    }
+}

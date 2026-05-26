@@ -1,0 +1,447 @@
+@font-face {
+    font-family: "Chinese Takeaway";
+    src: url("/assets/fonts/chinesetakeaway-webfont.woff2") format("woff2"),
+    url("/assets/fonts/chinesetakeaway-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --color-background: #8b0000;
+    --color-red: #ff0000;
+    --color-yellow: #ffff00;
+    --color-white: #ffffff;
+    --color-panel: #fffaf0;
+    --color-text: #111111;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100%;
+    margin: 0;
+    padding: 15px 50px;
+    background: var(--color-background);
+    color: var(--color-text);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    color: var(--color-yellow);
+    text-decoration: none;
+}
+
+a:hover,
+a:focus {
+    text-decoration: underline;
+}
+
+.top-header {
+    display: grid;
+    grid-template-columns: minmax(260px, 30%) 1fr minmax(260px, 30%);
+    align-items: center;
+    min-height: 50px;
+    background: var(--color-red);
+    color: var(--color-yellow);
+    overflow: hidden;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: "Chinese Takeaway", Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.brand-dragon {
+    height: 50px;
+    width: auto;
+    vertical-align: middle;
+}
+
+.ticker {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    color: var(--color-yellow);
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.ticker span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: ticker-scroll 14s linear infinite;
+}
+
+@keyframes ticker-scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.page-frame {
+    position: relative;
+    margin-top: 0;
+    padding: 70px 90px;
+    background: var(--color-red);
+    border-top: 7px solid var(--color-red);
+    border-bottom: 7px solid var(--color-red);
+    min-height: calc(100vh - 95px);
+}
+
+.page-frame::before {
+    content: "";
+    position: absolute;
+    inset: 25px 35px;
+    border: 4px solid var(--color-yellow);
+    pointer-events: none;
+}
+
+.page-frame::after {
+    content: "";
+    position: absolute;
+    inset: 45px 55px;
+    border: 4px solid var(--color-yellow);
+    pointer-events: none;
+}
+
+.frame-corner {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    border-color: var(--color-yellow);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.frame-corner-top-left {
+    top: 25px;
+    left: 35px;
+    border-top: 4px solid var(--color-yellow);
+    border-left: 4px solid var(--color-yellow);
+}
+
+.frame-corner-top-right {
+    top: 25px;
+    right: 35px;
+    border-top: 4px solid var(--color-yellow);
+    border-right: 4px solid var(--color-yellow);
+}
+
+.frame-corner-bottom-left {
+    bottom: 25px;
+    left: 35px;
+    border-bottom: 4px solid var(--color-yellow);
+    border-left: 4px solid var(--color-yellow);
+}
+
+.frame-corner-bottom-right {
+    right: 35px;
+    bottom: 25px;
+    border-right: 4px solid var(--color-yellow);
+    border-bottom: 4px solid var(--color-yellow);
+}
+
+.page-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: 220px 1fr 220px;
+    align-items: center;
+    gap: 20px;
+    color: var(--color-yellow);
+}
+
+.hero-dragon {
+    width: 200px;
+    max-width: 100%;
+    height: auto;
+}
+
+.hero-dragon-left {
+    justify-self: start;
+}
+
+.hero-dragon-right {
+    justify-self: end;
+}
+
+.hero-text {
+    text-align: center;
+    font-weight: bold;
+}
+
+.hero-subtitle {
+    margin: 0;
+    font-size: 40px;
+    line-height: 1.2;
+}
+
+.hero h1 {
+    margin: 0;
+    font-size: 50px;
+    line-height: 1.2;
+}
+
+.main-navigation {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 25px auto 50px;
+    color: var(--color-white);
+    border: 1px solid var(--color-white);
+    background-image: url("/assets/images/menu_bg_gradient.png");
+    background-size: cover;
+    background-repeat: repeat-x;
+}
+
+.main-navigation a {
+    display: block;
+    min-width: 160px;
+    padding: 6px 24px;
+    color: var(--color-white);
+    font-size: 20px;
+    border-right: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.main-navigation a:last-child {
+    border-right: 0;
+}
+
+.student-offer {
+    width: min(900px, calc(100% - 100px));
+    margin: 0 auto;
+    padding: 25px 35px;
+    background: var(--color-panel);
+    border: 1px solid #000000;
+    color: var(--color-text);
+}
+
+.student-offer h2 {
+    margin: 0 0 25px;
+    font-size: 1.2rem;
+    line-height: 1.45;
+}
+
+.student-offer h3 {
+    display: inline-block;
+    margin: 0 0 15px;
+    font-size: 1.5rem;
+    text-decoration: underline;
+}
+
+.student-offer h4 {
+    margin: 0 0 20px;
+    font-size: 2rem;
+}
+
+.student-offer p {
+    margin: 15px 0;
+    font-size: 1.15rem;
+}
+
+.dish-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 70px;
+    width: min(650px, 100%);
+    margin: 20px auto;
+    font-size: 1.1rem;
+    text-align: left;
+}
+
+.dish-grid span:nth-child(odd) {
+    text-align: right;
+}
+
+.dish-grid span:nth-child(even) {
+    text-align: left;
+}
+
+.price {
+    font-size: 2rem !important;
+    font-weight: bold;
+}
+
+.bottom-link {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.placeholder-page {
+    width: min(700px, 100%);
+    margin: 80px auto;
+    padding: 30px;
+    background: var(--color-panel);
+    border: 1px solid #000000;
+}
+
+.placeholder-page h1 {
+    margin-top: 0;
+}
+
+.placeholder-page a {
+    color: var(--color-background);
+    font-weight: bold;
+}
+
+@media (max-width: 1100px) {
+    body {
+        padding: 12px 20px;
+    }
+
+    .top-header {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding-bottom: 8px;
+    }
+
+    .brand-right {
+        display: none;
+    }
+
+    .ticker {
+        width: 100%;
+    }
+
+    .page-frame {
+        padding: 55px 45px;
+    }
+
+    .hero {
+        grid-template-columns: 140px 1fr 140px;
+    }
+
+    .hero-dragon {
+        width: 140px;
+    }
+
+    .hero-subtitle {
+        font-size: 30px;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 760px) {
+    body {
+        padding: 10px;
+    }
+
+    .brand {
+        font-size: 24px;
+    }
+
+    .brand-dragon {
+        height: 42px;
+    }
+
+    .page-frame {
+        padding: 45px 25px;
+    }
+
+    .page-frame::before,
+    .page-frame::after,
+    .frame-corner {
+        display: none;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-dragon {
+        width: 120px;
+        justify-self: center;
+    }
+
+    .hero-dragon-right {
+        display: none;
+    }
+
+    .hero-subtitle {
+        font-size: 24px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .main-navigation {
+        display: grid;
+        width: 100%;
+    }
+
+    .main-navigation a {
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+    }
+
+    .main-navigation a:last-child {
+        border-bottom: 0;
+    }
+
+    .student-offer {
+        width: 100%;
+        padding: 22px 18px;
+    }
+
+    .dish-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        text-align: center;
+    }
+
+    .dish-grid span:nth-child(odd),
+    .dish-grid span:nth-child(even) {
+        text-align: center;
+    }
+}
+.menu-card {
+    width: min(1000px, calc(100% - 100px));
+    margin: 0 auto;
+    padding: 0;
+    border: 1px solid #000000;
+    background: floralwhite;
+    font-size: 5px;
+    text-align: center;
+}
+
+.menu-card-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+@media (max-width: 760px) {
+    .menu-card {
+        width: 100%;
+    }
+}
+.main-navigation a.active {
+    font-weight: bold;
+    text-decoration: underline;
+}

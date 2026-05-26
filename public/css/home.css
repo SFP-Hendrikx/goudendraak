@@ -1,0 +1,72 @@
+.student-offer {
+    width: min(900px, calc(100% - 100px));
+    margin: 0 auto;
+    padding: 25px 35px;
+    background: var(--color-panel);
+    border: 1px solid #000000;
+    color: var(--color-text);
+}
+
+.student-offer h2 {
+    margin: 0 0 25px;
+    font-size: 1.2rem;
+    line-height: 1.45;
+}
+
+.student-offer h3 {
+    display: inline-block;
+    margin: 0 0 15px;
+    font-size: 1.5rem;
+    text-decoration: underline;
+}
+
+.student-offer h4 {
+    margin: 0 0 20px;
+    font-size: 2rem;
+}
+
+.student-offer p {
+    margin: 15px 0;
+    font-size: 1.15rem;
+}
+
+.dish-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 70px;
+    width: min(650px, 100%);
+    margin: 20px auto;
+    font-size: 1.1rem;
+    text-align: left;
+}
+
+.dish-grid span:nth-child(odd) {
+    text-align: right;
+}
+
+.dish-grid span:nth-child(even) {
+    text-align: left;
+}
+
+.price {
+    font-size: 2rem !important;
+    font-weight: bold;
+}
+
+@media (max-width: 760px) {
+    .student-offer {
+        width: 100%;
+        padding: 22px 18px;
+    }
+
+    .dish-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        text-align: center;
+    }
+
+    .dish-grid span:nth-child(odd),
+    .dish-grid span:nth-child(even) {
+        text-align: center;
+    }
+}

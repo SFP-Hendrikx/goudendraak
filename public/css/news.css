@@ -1,0 +1,19 @@
+.news-panel {
+    margin-top: 50px;
+}
+
+.news-panel h2 {
+    margin-bottom: 0;
+    font-size: 1.35rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 760px) {
+    .news-panel {
+        margin-top: 30px;
+    }
+
+    .news-panel h2 {
+        font-size: 1.1rem;
+    }
+}

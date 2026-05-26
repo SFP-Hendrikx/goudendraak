@@ -1,0 +1,22 @@
+.menu-card {
+    width: min(1000px, calc(100% - 100px));
+    margin: 0 auto;
+    padding: 0;
+    border: 1px solid #000000;
+    background: var(--color-panel);
+    font-size: 5px;
+    text-align: center;
+}
+
+.menu-card-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+@media (max-width: 760px) {
+    .menu-card {
+        width: 100%;
+    }
+}

@@ -1,0 +1,16 @@
+.placeholder-page {
+    width: min(700px, 100%);
+    margin: 80px auto;
+    padding: 30px;
+    background: var(--color-panel);
+    border: 1px solid #000000;
+}
+
+.placeholder-page h1 {
+    margin-top: 0;
+}
+
+.placeholder-page a {
+    color: var(--color-background);
+    font-weight: bold;
+}

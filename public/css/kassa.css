@@ -1,0 +1,134 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #ffffff;
+    color: #111111;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#menuBar {
+    min-height: 83px;
+    border-bottom: 3px solid rgb(0, 102, 255);
+    background: #ffffff;
+}
+
+#logo {
+    height: 80px;
+    float: left;
+}
+
+#buttonBar {
+    min-height: 82px;
+    text-align: center;
+}
+
+.menuButton {
+    display: inline-block;
+    width: 180px;
+    margin: 5px;
+    padding: 5px 0;
+    background-color: rgb(222, 235, 247);
+    border: 1px solid rgb(0, 102, 255);
+    border-radius: 10px;
+    color: rgb(0, 102, 255);
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.menuButton:hover,
+.menuButton:focus {
+    text-decoration: underline;
+}
+
+.menuButton:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    text-decoration: none;
+}
+
+.menuButton.active {
+    background-color: rgb(190, 220, 250);
+}
+
+.logoutForm {
+    display: inline-block;
+    margin-left: 50px;
+}
+
+.logoutButton {
+    font-family: inherit;
+}
+
+#loginDiv {
+    width: 250px;
+    margin: 100px auto 0;
+    padding: 30px;
+    border: 1px solid grey;
+    border-radius: 20px;
+    text-align: center;
+}
+
+#loginDiv input {
+    width: 100%;
+    margin: 2px;
+}
+
+#loginDiv input[type="submit"] {
+    width: 60%;
+    cursor: pointer;
+}
+
+.errorMessage {
+    padding: 10px;
+    color: red;
+    text-align: center;
+    font-weight: bold;
+}
+
+.kassaWelcome {
+    width: min(700px, calc(100% - 40px));
+    margin: 80px auto;
+    padding: 30px;
+    border: 1px solid rgb(0, 102, 255);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.kassaWelcome h1 {
+    margin-top: 0;
+    color: rgb(0, 102, 255);
+}
+
+@media (max-width: 760px) {
+    #logo {
+        float: none;
+        display: block;
+        margin: 0 auto;
+    }
+
+    #buttonBar {
+        padding-bottom: 10px;
+    }
+
+    .menuButton {
+        display: block;
+        width: min(260px, calc(100% - 30px));
+        margin: 8px auto;
+    }
+
+    .logoutForm {
+        display: block;
+        margin-left: 0;
+    }
+
+    #loginDiv {
+        width: min(300px, calc(100% - 30px));
+        margin-top: 60px;
+    }
+}
