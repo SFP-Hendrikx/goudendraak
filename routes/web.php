@@ -3,6 +3,7 @@
 use App\Http\Controllers\Kassa\MenuItemController;
 use App\Http\Controllers\Kassa\OfferController;
 use App\Http\Controllers\Kassa\PlanningController;
+use App\Http\Controllers\Kassa\SalesSummaryController;
 use App\Http\Controllers\KassaController;
 use App\Http\Controllers\PageController;
 use App\Http\Middleware\KassaAdmin;
@@ -44,6 +45,10 @@ Route::prefix('kassa')->name('kassa.')->group(function () {
             Route::get('/planning', [PlanningController::class, 'index'])->name('planning');
             Route::post('/planning', [PlanningController::class, 'store'])->name('planning.store');
             Route::delete('/planning/{planningRule}', [PlanningController::class, 'destroy'])->name('planning.destroy');
+
+            Route::get('/verkoop-samenvattingen', [SalesSummaryController::class, 'index'])->name('sales-summaries');
+            Route::post('/verkoop-samenvattingen/genereren', [SalesSummaryController::class, 'generate'])->name('sales-summaries.generate');
+            Route::get('/verkoop-samenvattingen/{salesSummary}/download', [SalesSummaryController::class, 'download'])->name('sales-summaries.download');
         });
     });
 });

@@ -1,0 +1,147 @@
+#salesSummariesPage {
+    width: min(1150px, calc(100% - 30px));
+    margin: 25px auto;
+}
+
+.summariesHeader,
+.generatePanel,
+.summaryCard {
+    margin-bottom: 18px;
+    padding: 16px;
+    border: 1px solid rgb(0, 102, 255);
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+
+.summariesHeader,
+.generatePanel {
+    background-color: rgb(245, 249, 255);
+}
+
+.summariesHeader h1,
+.generatePanel h2,
+.summaryList h2,
+.summaryCard h3 {
+    margin-top: 0;
+    color: rgb(0, 102, 255);
+}
+
+.summariesHeader p,
+.generatePanel p {
+    margin-bottom: 0;
+}
+
+.successMessage,
+.errorMessage {
+    margin-bottom: 15px;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.successMessage {
+    border: 1px solid green;
+    background-color: #edf9ed;
+    color: green;
+}
+
+.errorMessage {
+    border: 1px solid red;
+    background-color: #fff0f0;
+    color: red;
+}
+
+.generateForm {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: end;
+    margin-top: 15px;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.formGroup label {
+    margin-bottom: 4px;
+    color: rgb(0, 102, 255);
+    font-weight: bold;
+}
+
+.formGroup input {
+    padding: 7px;
+    border: 1px solid rgb(0, 102, 255);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+button,
+.downloadButton {
+    display: inline-block;
+    padding: 8px 13px;
+    border: 1px solid rgb(0, 102, 255);
+    border-radius: 6px;
+    background-color: rgb(222, 235, 247);
+    color: rgb(0, 102, 255);
+    font-family: inherit;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button:hover,
+button:focus,
+.downloadButton:hover,
+.downloadButton:focus {
+    text-decoration: underline;
+}
+
+.summaryCard {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 18px;
+}
+
+.summaryStats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+    gap: 8px 18px;
+    margin: 12px 0 0;
+    padding-left: 20px;
+}
+
+.summaryActions {
+    display: flex;
+    align-items: start;
+}
+
+.emptyState {
+    padding: 16px;
+    border: 1px solid rgb(0, 102, 255);
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.paginationWrapper {
+    margin-top: 20px;
+}
+
+@media (max-width: 760px) {
+    .summaryCard {
+        grid-template-columns: 1fr;
+    }
+
+    .summaryStats {
+        grid-template-columns: 1fr;
+    }
+
+    .generateForm,
+    .generateForm button,
+    .downloadButton {
+        width: 100%;
+    }
+}

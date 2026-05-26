@@ -47,6 +47,13 @@
                 >
                     Planning
                 </a>
+
+                <a
+                    href="{{ route('kassa.sales-summaries') }}"
+                    class="menuButton {{ request()->routeIs('kassa.sales-summaries*') ? 'active' : '' }}"
+                >
+                    Samenvattingen
+                </a>
             @endif
 
             <a
