@@ -1,0 +1,230 @@
+#planningPage {
+    width: min(1250px, calc(100% - 30px));
+    margin: 25px auto;
+}
+
+.planningHeader,
+.planningCreatePanel,
+.planningWeek {
+    margin-bottom: 18px;
+    padding: 18px;
+    border: 1px solid rgb(0, 102, 255);
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+
+.planningHeader {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+    background-color: rgb(245, 249, 255);
+}
+
+.planningHeader h1,
+.planningCreatePanel h2,
+.planningWeek h2 {
+    margin-top: 0;
+    color: rgb(0, 102, 255);
+}
+
+.planningHeader p {
+    margin-bottom: 0;
+}
+
+.weekNavigation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.weekNavigation a,
+button {
+    display: inline-block;
+    padding: 8px 13px;
+    border: 1px solid rgb(0, 102, 255);
+    border-radius: 6px;
+    background-color: rgb(222, 235, 247);
+    color: rgb(0, 102, 255);
+    font-family: inherit;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.weekNavigation a:hover,
+.weekNavigation a:focus,
+button:hover,
+button:focus {
+    text-decoration: underline;
+}
+
+.successMessage,
+.errorMessage {
+    margin-bottom: 15px;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.successMessage {
+    border: 1px solid green;
+    background-color: #edf9ed;
+    color: green;
+}
+
+.errorMessage {
+    border: 1px solid red;
+    background-color: #fff0f0;
+    color: red;
+}
+
+.planningFormGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.formGroup.full {
+    grid-column: 1 / -1;
+}
+
+.formGroup label {
+    margin-bottom: 4px;
+    color: rgb(0, 102, 255);
+    font-weight: bold;
+}
+
+.formGroup input,
+.formGroup select {
+    padding: 7px;
+    border: 1px solid rgb(0, 102, 255);
+    border-radius: 6px;
+    background-color: #ffffff;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.tableCheckboxGrid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(110px, 1fr));
+    gap: 8px;
+}
+
+.tableCheckbox {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    padding: 8px;
+    border: 1px solid rgb(0, 102, 255);
+    border-radius: 6px;
+    background-color: rgb(245, 249, 255);
+    font-weight: bold;
+}
+
+.planningForm button {
+    margin-top: 14px;
+}
+
+.planningGrid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(160px, 1fr));
+    gap: 12px;
+}
+
+.planningDay {
+    padding: 12px;
+    border: 1px solid rgb(0, 102, 255);
+    border-radius: 10px;
+    background-color: rgb(245, 249, 255);
+}
+
+.planningDay h3 {
+    margin: 0 0 12px;
+    color: rgb(0, 102, 255);
+    font-size: 16px;
+}
+
+.serviceBlock {
+    margin-bottom: 12px;
+    padding: 10px;
+    border: 1px solid rgb(0, 102, 255);
+    border-radius: 8px;
+    background-color: #ffffff;
+}
+
+.serviceBlock h4 {
+    margin: 0 0 8px;
+    color: rgb(0, 102, 255);
+}
+
+.planningRuleCard {
+    display: grid;
+    gap: 8px;
+    margin-bottom: 8px;
+    padding: 8px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    background-color: #ffffff;
+}
+
+.planningRuleCard p {
+    margin: 5px 0 0;
+}
+
+.planningRemark {
+    font-style: italic;
+}
+
+.emptyService {
+    margin: 0;
+    color: #555555;
+    font-size: 13px;
+}
+
+.dangerButton {
+    border-color: #b00020;
+    background-color: #ffe8ec;
+    color: #b00020;
+}
+
+@media (max-width: 1200px) {
+    .planningGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tableCheckboxGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 760px) {
+    .planningHeader {
+        display: block;
+    }
+
+    .weekNavigation {
+        margin-top: 12px;
+    }
+
+    .planningFormGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .formGroup.full {
+        grid-column: auto;
+    }
+
+    .planningGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .tableCheckboxGrid {
+        grid-template-columns: 1fr 1fr;
+    }
+}

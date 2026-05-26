@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Kassa\MenuItemController;
+use App\Http\Controllers\Kassa\PlanningController;
 use App\Http\Controllers\KassaController;
 use App\Http\Controllers\PageController;
 use App\Http\Middleware\KassaAdmin;
@@ -30,6 +31,10 @@ Route::prefix('kassa')->name('kassa.')->group(function () {
             Route::patch('/gerechten/{menuItem}', [MenuItemController::class, 'update'])->name('gerechten.update');
             Route::delete('/gerechten/{menuItem}', [MenuItemController::class, 'destroy'])->name('gerechten.destroy');
             Route::patch('/gerechten/{menuItem}/herstellen', [MenuItemController::class, 'restore'])->name('gerechten.restore');
+
+            Route::get('/planning', [PlanningController::class, 'index'])->name('planning');
+            Route::post('/planning', [PlanningController::class, 'store'])->name('planning.store');
+            Route::delete('/planning/{planningRule}', [PlanningController::class, 'destroy'])->name('planning.destroy');
         });
     });
 });

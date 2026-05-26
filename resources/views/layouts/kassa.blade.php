@@ -26,12 +26,21 @@
                 Kassa
             </a>
 
-            <a
-                href="{{ route('kassa.gerechten') }}"
-                class="menuButton {{ request()->routeIs('kassa.gerechten') ? 'active' : '' }}"
-            >
-                Gerechten
-            </a>
+            @if(session('kassa_is_admin'))
+                <a
+                    href="{{ route('kassa.gerechten') }}"
+                    class="menuButton {{ request()->routeIs('kassa.gerechten*') ? 'active' : '' }}"
+                >
+                    Gerechten
+                </a>
+
+                <a
+                    href="{{ route('kassa.planning') }}"
+                    class="menuButton {{ request()->routeIs('kassa.planning*') ? 'active' : '' }}"
+                >
+                    Planning
+                </a>
+            @endif
 
             <a
                 href="{{ route('kassa.sales') }}"
