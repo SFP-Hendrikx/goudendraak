@@ -42,7 +42,7 @@ class OfferRequest extends FormRequest
 
             'menu_items' => ['required', 'array'],
             'menu_items.*.selected' => ['nullable', 'boolean'],
-            'menu_items.*.actieprijs' => ['nullable', 'numeric', 'min:0', 'max:9999.99'],
+            'menu_items.*.actieprijs' => ['nullable', 'numeric', 'min:0.01', 'max:9999.99'],
         ];
     }
 
@@ -58,7 +58,8 @@ class OfferRequest extends FormRequest
             'einddatum.after_or_equal' => 'Einddatum moet op of na de startdatum liggen.',
             'menu_items.required' => 'Kies minimaal één gerecht.',
             'menu_items.*.actieprijs.numeric' => 'Actieprijs moet een geldig bedrag zijn.',
-            'menu_items.*.actieprijs.min' => 'Actieprijs mag niet negatief zijn.',
+            'menu_items.*.actieprijs.min' => 'Actieprijs moet hoger zijn dan € 0,00.',
+            'menu_items.*.actieprijs.max' => 'Actieprijs is te hoog.',
         ];
     }
 
@@ -74,19 +75,45 @@ class OfferRequest extends FormRequest
 
             $menuItemIds = array_keys($selectedItems);
 
-            $existingMenuItemCount = MenuItem::query()
+            $menuItems = MenuItem::query()
+                ->active()
                 ->whereIn('id', $menuItemIds)
-                ->count();
+                ->get()
+                ->keyBy('id');
 
-            if ($existingMenuItemCount !== count($menuItemIds)) {
-                $validator->errors()->add('menu_items', 'Eén van de gekozen gerechten bestaat niet.');
+            if ($menuItems->count() !== count($menuItemIds)) {
+                $validator->errors()->add('menu_items', 'Eén van de gekozen gerechten bestaat niet of is niet actief.');
+                return;
             }
 
             foreach ($selectedItems as $menuItemId => $menuItemData) {
-                if (! isset($menuItemData['actieprijs']) || $menuItemData['actieprijs'] === '') {
+                $actionPrice = $menuItemData['actieprijs'] ?? null;
+
+                if ($actionPrice === null || $actionPrice === '') {
                     $validator->errors()->add(
                         "menu_items.{$menuItemId}.actieprijs",
                         'Vul voor elk gekozen gerecht een actieprijs in.'
+                    );
+
+                    continue;
+                }
+
+                $menuItem = $menuItems->get($menuItemId);
+                $normalPrice = (float) $menuItem->price;
+
+                if ($normalPrice <= 0) {
+                    $validator->errors()->add(
+                        "menu_items.{$menuItemId}.actieprijs",
+                        'Dit gerecht heeft geen geldige normale prijs.'
+                    );
+
+                    continue;
+                }
+
+                if ((float) $actionPrice >= $normalPrice) {
+                    $validator->errors()->add(
+                        "menu_items.{$menuItemId}.actieprijs",
+                        'De actieprijs moet lager zijn dan de normale prijs.'
                     );
                 }
             }
@@ -110,7 +137,7 @@ class OfferRequest extends FormRequest
 
         foreach ($this->selectedMenuItems() as $menuItemId => $menuItemData) {
             $syncData[$menuItemId] = [
-                'actieprijs' => $menuItemData['actieprijs'],
+                'actieprijs' => round((float) $menuItemData['actieprijs'], 2),
             ];
         }
 

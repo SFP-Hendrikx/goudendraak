@@ -1,22 +1,263 @@
 .menu-card {
-    width: min(1000px, calc(100% - 100px));
+    width: min(1420px, 100%);
     margin: 0 auto;
-    padding: 0;
-    border: 1px solid #000000;
-    background: var(--color-panel);
-    font-size: 5px;
+    padding: 32px 36px 34px;
+    border: 5px double #2f6b2f;
+    outline: 1px solid rgba(47, 107, 47, 0.45);
+    outline-offset: -13px;
+    background:
+        linear-gradient(rgba(255, 255, 210, 0.93), rgba(255, 255, 210, 0.93)),
+        url("/assets/images/dragon-large.png") center 52% / 360px auto no-repeat;
+    color: var(--color-text);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.28);
+    font-family: Georgia, "Times New Roman", serif;
+    text-align: left;
+}
+
+.menu-header {
+    margin: 0 auto 24px;
+    padding: 0 20px 18px;
+    border-bottom: 3px double #2f6b2f;
     text-align: center;
 }
 
-.menu-card-image {
+.menu-subtitle {
+    margin: 0 0 6px;
+    font-size: clamp(1.2rem, 1vw + 0.9rem, 1.8rem);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.menu-header h2 {
+    margin: 0;
+    font-size: clamp(2.1rem, 2.4vw + 1.2rem, 4rem);
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-decoration: underline;
+    text-underline-offset: 8px;
+}
+
+.menu-note {
+    margin: 16px auto 0;
+    max-width: 760px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    line-height: 1.45;
+}
+
+.menu-sections {
+    column-count: 3;
+    column-gap: 44px;
+    column-rule: 1px solid rgba(47, 107, 47, 0.28);
+}
+
+.menu-category {
+    display: inline-block;
+    width: 100%;
+    margin: 0 0 24px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+.menu-category h3 {
+    margin: 0 0 10px;
+    padding: 5px 10px 6px;
+    border-top: 2px solid #2f6b2f;
+    border-bottom: 2px solid #2f6b2f;
+    background: rgba(255, 255, 170, 0.42);
+    font-size: 1.28rem;
+    line-height: 1.15;
+    text-align: center;
+    letter-spacing: 0.03em;
+}
+
+.menu-items {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.menu-item {
+    margin: 0 0 8px;
+    padding: 0 4px 5px;
+    font-size: 1.08rem;
+    line-height: 1.18;
+}
+
+.menu-item.has-offer {
+    margin-top: 8px;
+    padding: 8px 9px 9px;
+    border: 2px solid #b00000;
+    background: rgba(255, 244, 185, 0.9);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+}
+
+.menu-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+    width: 100%;
+}
+
+.menu-dish {
+    flex: 0 1 auto;
+    min-width: 0;
+    font-weight: bold;
+}
+
+.menu-number {
+    font-weight: 800;
+}
+
+.menu-name {
+    font-weight: 800;
+}
+
+.menu-dots {
+    flex: 1 1 22px;
+    min-width: 18px;
+    border-bottom: 2px dotted rgba(0, 0, 0, 0.72);
+    transform: translateY(-0.28em);
+}
+
+.menu-prices {
+    flex: 0 0 auto;
+    min-width: 76px;
+    text-align: right;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+.menu-price-normal {
+    font-size: 1.08rem;
+}
+
+.menu-price-old {
+    display: block;
+    color: #555555;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: line-through;
+}
+
+.menu-price-new {
+    display: block;
+    margin-top: 2px;
+    color: #b00000;
+    font-size: 1.15rem;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.menu-description {
+    margin: 2px 0 0 24px;
+    color: #1f1f1f;
+    font-size: 0.92rem;
+    font-style: italic;
+    font-weight: 600;
+    line-height: 1.22;
+}
+
+.menu-offer-label {
+    margin: 6px 0 0 24px;
+    color: #8b0000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.88rem;
+    line-height: 1.35;
+}
+
+.menu-offer-label span {
+    display: block;
+}
+
+.empty-menu {
     display: block;
     width: 100%;
-    height: auto;
-    margin: 0 auto;
+    padding: 28px;
+    border: 2px solid #2f6b2f;
+    background: rgba(255, 255, 170, 0.45);
+    text-align: center;
+}
+
+@media (max-width: 1300px) {
+    .menu-card {
+        padding: 30px 30px 32px;
+    }
+
+    .menu-sections {
+        column-count: 2;
+        column-gap: 38px;
+    }
+}
+
+@media (max-width: 980px) {
+    .menu-card {
+        padding: 26px 24px 28px;
+        outline-offset: -10px;
+    }
+
+    .menu-sections {
+        column-count: 1;
+        column-rule: 0;
+    }
+
+    .menu-category {
+        margin-bottom: 22px;
+    }
+
+    .menu-item {
+        font-size: 1.12rem;
+    }
 }
 
 @media (max-width: 760px) {
     .menu-card {
         width: 100%;
+        padding: 22px 16px 24px;
+        border-width: 4px;
+        outline: 0;
+        background:
+            linear-gradient(rgba(255, 255, 210, 0.96), rgba(255, 255, 210, 0.96)),
+            url("/assets/images/dragon-large.png") center 45% / 260px auto no-repeat;
+    }
+
+    .menu-header {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .menu-category h3 {
+        font-size: 1.12rem;
+    }
+
+    .menu-item {
+        font-size: 1.02rem;
+    }
+
+    .menu-row {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 4px 6px;
+    }
+
+    .menu-dish {
+        flex-basis: calc(100% - 92px);
+    }
+
+    .menu-dots {
+        display: none;
+    }
+
+    .menu-prices {
+        min-width: 82px;
+        margin-left: auto;
+    }
+
+    .menu-description,
+    .menu-offer-label {
+        margin-left: 0;
     }
 }

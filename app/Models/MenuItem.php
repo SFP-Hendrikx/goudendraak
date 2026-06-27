@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
@@ -37,5 +38,24 @@ class MenuItem extends Model
         )
             ->withPivot('actieprijs')
             ->withTimestamps();
+    }
+
+    public function scopeActive(Builder $query): Builder
+    {
+        return $query->where('is_actief', true);
+    }
+
+    public function scopeOrderedForMenu(Builder $query): Builder
+    {
+        return $query
+            ->orderBy('soortgerecht')
+            ->orderBy('menunummer')
+            ->orderBy('menu_toevoeging')
+            ->orderBy('naam');
+    }
+
+    public function fullMenuNumber(): string
+    {
+        return trim((string) $this->menunummer . (string) $this->menu_toevoeging);
     }
 }

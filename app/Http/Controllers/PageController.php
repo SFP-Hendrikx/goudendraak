@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Offer;
+use App\Services\ActiveOfferService;
 use Illuminate\View\View;
 
 class PageController extends Controller
@@ -12,9 +12,11 @@ class PageController extends Controller
         return view('pages.home');
     }
 
-    public function menu(): View
+    public function menu(ActiveOfferService $activeOfferService): View
     {
-        return view('pages.menu');
+        return view('pages.menu', [
+            'menuGroups' => $activeOfferService->groupedMenuForDate(now()),
+        ]);
     }
 
     public function news(): View
@@ -27,24 +29,10 @@ class PageController extends Controller
         return view('pages.contact');
     }
 
-    public function offers(): View
+    public function offers(ActiveOfferService $activeOfferService): View
     {
-        $offers = Offer::query()
-            ->visibleThisWeek()
-            ->with(['menuItems' => function ($query) {
-                $query
-                    ->where('is_actief', true)
-                    ->orderBy('soortgerecht')
-                    ->orderBy('menunummer')
-                    ->orderBy('menu_toevoeging')
-                    ->orderBy('naam');
-            }])
-            ->orderBy('startdatum')
-            ->orderBy('titel')
-            ->get();
-
         return view('pages.offers', [
-            'offers' => $offers,
+            'offers' => $activeOfferService->activeOffersForDate(now()),
         ]);
     }
 }

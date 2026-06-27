@@ -6,11 +6,18 @@
 
 @section('content')
     <section class="offers-panel">
-        <h2>Aanbiedingen van deze week</h2>
+        <h2>Aanbiedingen van dit moment</h2>
 
         @forelse($offers as $offer)
             <article class="offer-card">
-                <h3>{{ $offer->titel }}</h3>
+                <header class="offer-header">
+                    <h3>{{ $offer->titel }}</h3>
+
+                    <p class="offer-period">
+                        Geldig van {{ $offer->startdatum->format('d-m-Y') }}
+                        t/m {{ $offer->einddatum->format('d-m-Y') }}
+                    </p>
+                </header>
 
                 @if($offer->beschrijving)
                     <p class="offer-intro">
@@ -18,16 +25,11 @@
                     </p>
                 @endif
 
-                <p class="offer-period">
-                    Geldig van {{ $offer->startdatum->format('d-m-Y') }}
-                    t/m {{ $offer->einddatum->format('d-m-Y') }}
-                </p>
-
                 <div class="offer-dishes">
                     @foreach($offer->menuItems as $menuItem)
-                        <div class="offer-dish-card">
+                        <article class="offer-dish-card">
                             <h4>
-                                {{ $menuItem->menunummer }}{{ $menuItem->menu_toevoeging }}.
+                                {{ $menuItem->fullMenuNumber() }}.
                                 {{ $menuItem->naam }}
                             </h4>
 
@@ -35,16 +37,16 @@
                                 <p>{{ $menuItem->beschrijving }}</p>
                             @endif
 
-                            <p class="priceLine">
-                                <span class="oldPrice">
+                            <p class="price-line">
+                                <span class="old-price">
                                     Normaal € {{ number_format((float) $menuItem->price, 2, ',', ' ') }}
                                 </span>
 
-                                <span class="newPrice">
+                                <span class="new-price">
                                     Nu € {{ number_format((float) $menuItem->pivot->actieprijs, 2, ',', ' ') }}
                                 </span>
                             </p>
-                        </div>
+                        </article>
                     @endforeach
                 </div>
             </article>
@@ -61,6 +63,6 @@
     </section>
 
     <div class="bottom-link">
-        <a href="{{ route('home') }}">Naar Home</a>
+        <a href="{{ route('menu') }}">Naar de menukaart</a>
     </div>
 @endsection

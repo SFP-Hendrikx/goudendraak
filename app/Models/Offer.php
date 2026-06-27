@@ -37,6 +37,21 @@ class Offer extends Model
             ->withTimestamps();
     }
 
+    public function scopeActive(Builder $query): Builder
+    {
+        return $query->where('is_actief', true);
+    }
+
+    public function scopeActiveOnDate(Builder $query, Carbon|string|null $date = null): Builder
+    {
+        $date = Carbon::parse($date ?? now())->toDateString();
+
+        return $query
+            ->active()
+            ->whereDate('startdatum', '<=', $date)
+            ->whereDate('einddatum', '>=', $date);
+    }
+
     public function scopeVisibleThisWeek(Builder $query): Builder
     {
         $today = Carbon::parse(now()->toDateString());
@@ -45,7 +60,7 @@ class Offer extends Model
         $weekEnd = $today->copy()->endOfWeek(Carbon::SUNDAY)->toDateString();
 
         return $query
-            ->where('is_actief', true)
+            ->active()
             ->whereDate('startdatum', '<=', $weekEnd)
             ->whereDate('einddatum', '>=', $weekStart);
     }
