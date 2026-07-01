@@ -22,6 +22,7 @@ Route::get('/nieuws', [PageController::class, 'news'])->name('news');
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 Route::get('/aanbiedingen', [PageController::class, 'offers'])->name('offers');
 
+// admin
 Route::prefix('kassa')->name('kassa.')->group(function () {
     Route::get('/', [KassaController::class, 'index'])->name('index');
     Route::post('/login', [KassaController::class, 'login'])->name('login');
