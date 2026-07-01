@@ -6,6 +6,7 @@ use App\Http\Controllers\Kassa\PlanningController;
 use App\Http\Controllers\Kassa\SalesSummaryController;
 use App\Http\Controllers\KassaController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\TabletController;
 use App\Http\Middleware\KassaAdmin;
 use App\Http\Middleware\KassaAuth;
 use Illuminate\Support\Facades\Route;
@@ -14,6 +15,9 @@ Route::get('/', [PageController::class, 'home'])->name('home');
 
 Route::get('/menukaart', [PageController::class, 'menu'])->name('menu');
 Route::get('/menu/pdf', [PageController::class, 'menuPdf'])->name('menu.pdf');
+Route::get('/tablet', [TabletController::class, 'index'])->name('tablet.index');
+Route::post('/tablet', [TabletController::class, 'store'])->name('tablet.store');
+Route::post('/tablet/reset', [TabletController::class, 'resetTable'])->name('tablet.reset');
 Route::get('/nieuws', [PageController::class, 'news'])->name('news');
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 Route::get('/aanbiedingen', [PageController::class, 'offers'])->name('offers');
