@@ -261,3 +261,31 @@
         margin-left: 0;
     }
 }
+.menu-actions {
+    margin: 0 0 22px;
+    text-align: center;
+}
+
+.menu-pdf-button {
+    display: inline-block;
+    padding: 10px 18px;
+    border: 2px solid #2f6b2f;
+    background: #fff7b8;
+    color: #1f1f1f;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.menu-pdf-button:hover {
+    background: #fff19a;
+}
+
+@media print {
+    .menu-actions,
+    .bottom-link {
+        display: none;
+    }
+}

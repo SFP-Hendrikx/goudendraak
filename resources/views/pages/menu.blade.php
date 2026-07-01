@@ -11,10 +11,13 @@
 
             <h2>Menukaart</h2>
 
-            <p class="menu-note">
-                Actieve aanbiedingen worden automatisch bij het juiste gerecht getoond.
-            </p>
         </header>
+
+        <div class="menu-actions">
+            <a href="{{ route('menu.pdf') }}" class="menu-pdf-button" target="_blank" rel="noopener">
+                Opslaan als PDF
+            </a>
+        </div>
 
         <div class="menu-sections">
             @forelse($menuGroups as $category => $menuItems)
